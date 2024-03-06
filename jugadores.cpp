@@ -6,6 +6,18 @@ using namespace std;
 
 #define log(x) cout << x << endl;
 
+
+class Enemigo{
+public: 
+    int vida, ataque; 
+    string nombre; 
+
+    Enemigo(); 
+    Enemigo(int hp, int att, string name); 
+    void atacarJugador(Jugador &j); 
+
+
+}; 
 class Jugador
 {
     /*
@@ -19,8 +31,8 @@ public:
 
     Jugador();
     Jugador(int vida, int attack, string nombre);
-
-    void atacar(Jugador &j2);
+    void atacarEnemigo(Enemigo &e1); 
+    void atacarJugador(Jugador &j2);
 };
 
 int main()
@@ -39,14 +51,14 @@ int main()
 
     while (j1.vida > 0 && j2.vida > 0)
     {
-        j1.atacar(j2);
+        j1.atacarJugador(j2);
         if (j2.vida <= 0)
         {
             cout << j1.nombre << " es el ganador" << endl;
             break;
         }
 
-        j2.atacar(j1);
+        j2.atacarJugador(j1);
         if (j1.vida <= 0)
         {
             cout << j2.nombre << " es el ganador" << endl;
@@ -90,7 +102,7 @@ Jugador::Jugador(int vida, int attack, string nombre)
     this->nombre = nombre;
 }
 
-void Jugador::atacar(Jugador &j2)
+void Jugador::atacarJugador(Jugador &j2)
 {
     int ran = rand() % 5;
     if (ran == 0)
@@ -118,3 +130,43 @@ void Jugador::atacar(Jugador &j2)
         Puedes usar esto para la probabilidad del ataque.
     */
 }
+
+Enemigo::Enemigo(){
+    this->vida=100; 
+    this->ataque=50; 
+    this->nombre="desconocido";
+}; 
+
+Enemigo::Enemigo(int hp, int att, string name){
+    this->vida=hp; 
+    this->ataque=att; 
+    this->nombre=name; 
+}; 
+
+void Enemigo::atacarJugador(Jugador &j){
+    int ran = rand() % 5;
+    if (ran == 0)
+    {
+        cout << this->nombre << " ataco a " << j.nombre << " pero fallo, vida restante de " << j.nombre << " = " << j.vida << endl;
+    }
+    else
+    {
+        j.vida -= this->ataque;
+        cout << this->nombre << " ataco a " << j.nombre << " e hizo " << this->ataque << " de danio, vida restante de " << j.nombre << " = " << j.vida << endl;
+    }
+
+}; 
+
+void Jugador::atacarEnemigo(Enemigo &e){
+    int ran = rand() % 5;
+    if (ran == 0)
+    {
+        cout << this->nombre << " ataco a " << e.nombre << " pero fallo, vida restante de " << e.nombre << " = " << e.vida << endl;
+    }
+    else
+    {
+        e.vida -= this->attack;
+        cout << this->nombre << " ataco a " << e.nombre << " e hizo " << this->attack << " de danio, vida restante de " << e.nombre << " = " << e.vida << endl;
+    }
+
+}; 
