@@ -8,14 +8,14 @@ class Enemigo;
 class Jugador
 {
 public:
-    int vida, attack;
+    /*int vida, attack;
     string nombre;
-    Jugador *atacadoPor;
+    Jugador *atacadoPor;*/
 
-    Jugador();
-    Jugador(int vida, int attack, string nombre);
+    /*Jugador();
+    Jugador(int vida, int attack, string nombre);*/
     void atacarEnemigo(Enemigo &e1); 
-    void atacarJugador(Jugador &j2);
+    //void atacarJugador(Jugador &j2);
 };
 
 #endif
