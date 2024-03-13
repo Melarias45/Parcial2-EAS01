@@ -1,5 +1,4 @@
 #include "jugador.h"
-#include "enemigo.h"
 #include <iostream>
 #include <string>
 #include <cstdlib> // Función rand().

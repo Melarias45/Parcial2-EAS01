@@ -6,20 +6,16 @@
 
 using namespace std; 
 
-class Jugador; 
-
-class Entidad{
+class Base{
     public: 
-    int hp, attack; 
-    string name; 
+    int vida, ataque; 
+    string nombre; 
 
-    Entidad(); 
-    Entidad(int vid, int att, string nam); 
-    void atacarJugador(Jugador &j2);
+    Base(); 
+    Base(int hp, int att, string name); 
+    void atacar(Base &attacked);
 
 }; 
-
-
 
 #endif
 

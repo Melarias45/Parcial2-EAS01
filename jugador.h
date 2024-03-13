@@ -1,21 +1,23 @@
 #ifndef jugador_h
 #define jugador_h
+#include "base.h"
 #include <string>
 
 using namespace std; 
 
-class Enemigo; 
-class Jugador
-{
+class Jugador: public Base{
 public:
-    /*int vida, attack;
-    string nombre;
-    Jugador *atacadoPor;*/
+    Jugador *atacadoPor;
 
-    /*Jugador();
-    Jugador(int vida, int attack, string nombre);*/
-    void atacarEnemigo(Enemigo &e1); 
-    //void atacarJugador(Jugador &j2);
+    Jugador():Base(){
+        this->atacadoPor=nullptr; 
+    } 
+    Jugador(int vid, int att, string nam): Base (vida,ataque,nombre){
+        this->atacadoPor=nullptr; 
+    }
+    Jugador(int vid, int att); 
+
+    void atacarJugador(Jugador &j2);
 };
 
 #endif
